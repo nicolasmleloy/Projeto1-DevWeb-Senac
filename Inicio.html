@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="inicio.css">
-    <title>Início</title>
-</head>
-<body>
-    <div class="inicio">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="inicio.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="parte-cima">
+      <div class="inicio">
         <h1>MarvelPedia</h1>
-        <h2>A enciclopédia da Marvel</h2>
+        <h2>The Marvel Encyclopedia</h2>
+      </div>
+      <div class="pesquisa">
+        <input type="text" placeholder="Type here..." />
+        <button>Search</button>
+      </div>
+      <p>
+        Enter the name of a character or the beginning of it, and information
+        about them will be displayed below.
+      </p>
+      <small class="erro">Nenhum personagem encontrado</small>
     </div>
-    <div class="pesquisa">
-        <input type="text" placeholder="Digite aqui...">
-        <button>Pesquisar</button>
+
+    <div id="resto">
+      <div id="primeiro-personagem">
+        <h2 class="nome-personagem"></h2>
+        <img class="img-personagem" src="" alt="img-personagem" />
+        <h3 class="descricao-personagem"></h3>
+      </div>
+      <div class="outros-personagens"></div>
     </div>
-    <small class="erro">Nenhum personagem encontrado</small>
-    <p>Digite o nome de um personagem, e serão mostradas informações sobre ele abaixo</p>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -1,48 +1,46 @@
-const input = document.getElementsByClassName("nome-personagem")[0];
-const botao = document.getElementsByClassName("botao-submit")[0];
+const input = document.querySelector(".pesquisa input");
+const botao = document.querySelector(".pesquisa button");
 const mensagemVerificacao = document.getElementsByClassName(
-    "mensagem-verificacao"
+  "mensagem-verificacao"
 )[0];
 const primeiroPersonagem = document.getElementById("primeiro-personagem");
+const body = document.getElementsByTagName("body")[0];
 
-const personagemUser = "Hulk";
+function inserirDados(personagem) {
+  var h2 = primeiroPersonagem.childNodes[1];
+  var img = primeiroPersonagem.childNodes[3];
+  var h3 = primeiroPersonagem.childNodes[5];
 
-async function encontraPersonagem() {
-    try {
-        var personagem = await fetch(
-            `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${personagemUser}&ts=1&apikey=e4f36d5e9afff590f757f223a9ce6278&hash=f560c06bdacf8b44a597a7928e159ae5`
-        );
-        personagem = await personagem.json();
-        var h2 = primeiroPersonagem.childNodes[1]; //Pega o html do card do primeiro personagem
-        var img = primeiroPersonagem.childNodes[3]; //Pega o html do card do primeiro personagem
-        var h3 = primeiroPersonagem.childNodes[5]; //Pega o html do card do primeiro personagem
-
-        let personagemEncontrado = personagem.data.results;
-        h2.innerHTML = personagemEncontrado[0].name; //Insere o conteudo da API nas tags
-        img.src =
-            `${personagemEncontrado[0].thumbnail.path}.` +
-            `${personagemEncontrado[0].thumbnail.extension}`; //Insere o conteudo da API nas tags
-        h3.innerHTML = personagemEncontrado[0].description; //Insere o conteudo da API nas tags
-
-        if (personagem.data.results.length > 1) {
-            var outrosPersonagens = document.createElement("div"); // Tentando criar os outros personagem para inserir os dados
-            outrosPersonagens.innerHTML = `<div id="primeiro-personagem"> 
-            <h2 class="nome-personagem"></h2>
-            <img class="img-personagem" src="" alt="" />
-            <h3 class="descricao-personagem"></h3>
-            </div>`;
-        }
-
-        for (let i = 0; i < personagemEncontrado.length; i++) {
-            console.log(personagemEncontrado[i]);
-        }
-    } catch (error) {
-        console.log(error);
-    }
+  var personagemEncontrado = personagem.data.results;
+  h2.innerHTML = personagemEncontrado[0].name;
+  img.src =
+    `${personagemEncontrado[0].thumbnail.path}.` +
+    `${personagemEncontrado[0].thumbnail.extension}`;
+  h3.innerHTML = personagemEncontrado[0].description;
+  primeiroPersonagem.style.display = "flex";
 }
 
-encontraPersonagem();
+function rolaPraBaixo() {
+  window.scroll({
+    top: 1000,
+    behavior: "smooth",
+  });
+}
+async function encontraPersonagem() {
+  try {
+    var personagem = await fetch(
+      `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${input.value}&ts=1&apikey=e4f36d5e9afff590f757f223a9ce6278&hash=f560c06bdacf8b44a597a7928e159ae5`
+    );
+    personagem = await personagem.json();
 
-// botao.addEventListener("click", () => {
-//     personagemExiste(input.value);
-// });
+    inserirDados(personagem);
+    rolaPraBaixo();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+botao.addEventListener("click", () => {
+  encontraPersonagem();
+  document.createElement("button"); //Criar os cards dos outros relacionados
+});

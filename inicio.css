@@ -1,68 +1,157 @@
+@font-face {
+    font-family: marvel;
+    src: url(AvengeanceHeroicAvengerNormal-Bz7d.ttf);
+}
+
+@font-face {
+    font-family: marvel2;
+    src: url(AvengeanceMightiestAvenger-pyV1.otf);
+}
+
 * {
     margin: 0px;
     font-size: 15px;
-    font-family: sans-serif;
 }
-:root{
+
+:root {
     --cor-erro: rgb(158, 0, 0);
 }
-.pesquisa {
-    display: flex;
-}
-body {
+
+
+#parte-cima {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
-    margin-top: 20px;
     background-image: url(fundo\ \(2\).jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     color: white;
+    height: 100vh;
 }
-.pesquisa{
-    margin-top: 600px;
+
+#resto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }
-.pesquisa input{
+
+.inicio {
+    margin-top: 5px;
+}
+
+.inicio h1 {
+    font-size: 3rem;
+    font-family: marvel2;
+}
+
+.inicio h2 {
+    font-weight: 500;
+}
+
+.pesquisa {
+    margin-top: 420px;
+}
+
+.pesquisa input {
     border: none;
     width: 500px;
     height: 70px;
     background-color: rgb(255, 255, 255);
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px;
     padding-left: 20px;
     color: rgb(0, 0, 0);
+    font-size: 1.2rem;
 }
+
 .pesquisa input::placeholder {
-    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    color: rgb(109, 109, 109);
+    font-family: marvel;
 }
+
 .pesquisa button {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    border-radius: 20px;
+    border-radius: 10px;
     height: 70px;
     width: 100px;
-    margin: 10px;
     padding: 15px;
     border: none;
+    font-family: marvel;
 }
-.erro{
+
+.erro {
     color: var(--cor-erro);
     visibility: hidden;
     font-weight: 700;
 }
-h1{
+
+h1 {
     font-size: 35px;
 }
-h2{
+
+h2 {
     font-size: 25px;
 }
-.pesquisa button:hover{
-    background-color: rgb(165, 165, 165);
+
+.pesquisa button {
+    font-size: 1.2rem;
+    font-weight: 700;
 }
+
+.pesquisa button:hover {
+    background-color: rgb(165, 165, 165);
+    cursor: pointer;
+}
+
 .click-botao {
     background-color: gray;
+}
+
+/*---------------------------------------------*/
+
+#primeiro-personagem {
+    display: none;
+    flex-direction: column;
+    width: 350px;
+    height: 500px;
+    background-color: rgb(194, 194, 194);
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nome-personagem {
+    font-size: 2rem;
+    color: black;
+    text-shadow: 2px 2px 5px white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: marvel2;
+}
+
+.img-personagem {
+    width: 300px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.descricao-personagem {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: lighter;
+    color: black;
+}
+
+.outros-personagens {
+    display: flex;
 }
