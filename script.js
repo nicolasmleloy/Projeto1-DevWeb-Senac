@@ -5,6 +5,7 @@ const mensagemVerificacao = document.getElementsByClassName(
 )[0];
 const primeiroPersonagem = document.getElementById("primeiro-personagem");
 const body = document.getElementsByTagName("body")[0];
+const botoes = document.querySelectorAll(".estilo-botoes");
 
 function inserirDados(personagem) {
     var h2 = primeiroPersonagem.childNodes[1];
@@ -45,5 +46,9 @@ async function encontraPersonagem() {
 
 botao.addEventListener("click", () => {
     encontraPersonagem();
-    document.createElement("button"); //Criar os cards dos outros relacionados
+    for (let index = 0; index < botoes.length; index++) {
+        botoes[index].style.display = "flex"
+    }
+
+     //Criar os cards dos outros relacionados
 });

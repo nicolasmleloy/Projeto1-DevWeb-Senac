@@ -35,9 +35,11 @@
 
 #resto {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
+    gap: 10px;
 }
 
 .inicio {
@@ -154,4 +156,29 @@ h2 {
 
 .outros-personagens {
     display: flex;
+}
+
+.estilo-botoes{
+    display: none;
+    gap: 10px;
+}
+
+.estilo-botoes a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.estilo-botoes a:hover{
+    background-color: rgb(189, 189, 189);
+}
+
+.estilo-botoes:hover{
+    cursor: pointer;
 }
