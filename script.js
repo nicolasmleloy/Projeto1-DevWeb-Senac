@@ -5,7 +5,7 @@ const mensagemVerificacao = document.getElementsByClassName(
 )[0];
 const primeiroPersonagem = document.getElementById("primeiro-personagem");
 const body = document.getElementsByTagName("body")[0];
-const botoes = document.querySelectorAll(".estilo-botoes");
+// const botoes = document.querySelectorAll(".estilo-botoes");
 const outrosPersonagensContainer = document.getElementById(
   "outros-personagens-container"
 );
@@ -23,6 +23,7 @@ function inserirDados(personagem) {
       const outroPersH2 = document.createElement("h2");
       const outroPersImg = document.createElement("img");
       const outroPersH3 = document.createElement("h3");
+     
 
       outroPersH2.textContent = personagemEncontrado[i].name;
       outroPersImg.src = `${personagemEncontrado[i].thumbnail.path}.${personagemEncontrado[i].thumbnail.extension}`;
@@ -33,16 +34,16 @@ function inserirDados(personagem) {
       botoes.className = "estilo-botoes";
 
       const comicsButton = document.createElement("a");
-      comicsButton.href = "carrossel-comics.html";
-      comicsButton.textContent = "Ver comics";
+      comicsButton.href = `carrossel-comics.html?id=${personagemEncontrado[i].id}`;
+      comicsButton.textContent = "View comics";
 
       const seriesButton = document.createElement("a");
       seriesButton.href = "carrossel-series.html";
-      seriesButton.textContent = "Ver series";
+      seriesButton.textContent = "View series";
 
       const filmesButton = document.createElement("a");
-      filmesButton.href = "carrossel-filmes.html";
-      filmesButton.textContent = "Ver filmes";
+      filmesButton.href = `carrossel-filmes.html?id=${personagemEncontrado[i].id}`;
+      filmesButton.textContent = "View movies";
 
       botoes.appendChild(comicsButton);
       botoes.appendChild(seriesButton);
@@ -53,10 +54,20 @@ function inserirDados(personagem) {
       card.appendChild(outroPersH3);
       card.appendChild(botoes);
 
+      console.log(personagemEncontrado[i]);
+
       if (i === 0) {
         const h2 = primeiroPersonagem.childNodes[1];
         const img = primeiroPersonagem.childNodes[3];
         const h3 = primeiroPersonagem.childNodes[5];
+
+        const linkcomics = document.getElementById("linkcomics");
+        linkcomics.href = `carrossel-comics.html?id=${personagemEncontrado[i].id}`;
+        const linkseries = document.getElementById("linkseries");
+        linkseries.href = `carrossel-series.html?id=${personagemEncontrado[i].id}`;
+        const linkmovies = document.getElementById("linkmovies");
+        linkmovies.href = `carrossel-filmes.html?id=${personagemEncontrado[i].id}`;
+        
         const principalBotoes =
           primeiroPersonagem.querySelector(".estilo-botoes");
 
