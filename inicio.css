@@ -17,6 +17,13 @@
     --cor-erro: rgb(158, 0, 0);
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: black;
+    gap: 100px;
+}
 
 #parte-cima {
     display: flex;
@@ -30,7 +37,6 @@
     background-repeat: no-repeat;
     background-color: black;
     color: white;
-    height: 100vh;
 }
 
 #resto {
@@ -88,9 +94,13 @@
     font-family: marvel;
 }
 
+.mensagem {
+    display: none;
+}
+
 .erro {
+    display: flex;
     color: var(--cor-erro);
-    visibility: hidden;
     font-weight: 700;
 }
 
@@ -118,33 +128,40 @@ h2 {
 
 /*---------------------------------------------*/
 
-#primeiro-personagem {
+#primeiro-personagem,
+.outros-personagens {
     display: none;
     flex-direction: column;
-    width: 350px;
-    height: 500px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     background-color: rgb(194, 194, 194);
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nome-personagem {
     font-size: 2rem;
     color: black;
-    text-shadow: 2px 2px 5px white;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
     font-family: marvel2;
+    text-shadow: 1px 1px 2px #aaa;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-.img-personagem {
-    width: 300px;
-    height: 100%;
-    border-radius: 5px;
+.img-personagem,
+.outros-personagens img {
+    width: 100%;
+    height: 50%;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .descricao-personagem {
@@ -152,33 +169,85 @@ h2 {
     text-align: center;
     font-weight: lighter;
     color: black;
+    font-style: italic;
+}
+
+#outros-personagens-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#primeiro-personagem:hover,
+.outros-personagens:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .outros-personagens {
     display: flex;
-}
-
-.estilo-botoes{
-    display: none;
+    flex-direction: column;
+    width: 250px;
+    height: 500px;
+    background: rgb(119, 119, 119);
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.estilo-botoes a{
+.outros-personagens h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+    text-shadow: 1px 1px 2px #ffffff;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    font-family: marvel2;
+}
+
+.outros-personagens h3 {
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+
+.estilo-botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.estilo-botoes a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 35px;
-    background-color: gray;
+    height: 30px;
+    background-color: rgb(52, 52, 52);
     border-radius: 10px;
     color: white;
     text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px;
 }
 
-.estilo-botoes a:hover{
-    background-color: rgb(189, 189, 189);
+.estilo-botoes a:hover {
+    background: linear-gradient(145deg, #555, #777);
+    transform: scale(1.1);
 }
 
-.estilo-botoes:hover{
+
+.estilo-botoes:hover {
     cursor: pointer;
 }
